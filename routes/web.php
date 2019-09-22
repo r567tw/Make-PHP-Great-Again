@@ -23,3 +23,5 @@ Route::get('/hello', function () {
 Route::get('/hello/{name}', function ($name) {
     return 'Hello ' . $name;
 });
+
+Route::get('articles', 'ArticleController@first');

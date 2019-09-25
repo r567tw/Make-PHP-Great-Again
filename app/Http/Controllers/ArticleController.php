@@ -29,7 +29,7 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        //
+        return view('articles.create');
     }
 
     /**
@@ -40,7 +40,15 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $title = $request->title;
+        $content = $request->content;
+
+        $article = new Article();
+        $article->title = $title;
+        $article->content = $content;
+        $article->save();
+
+        return redirect(route('article.index'));
     }
 
     /**
@@ -61,9 +69,9 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Article $article)
     {
-        //
+        return view('articles.edit')->withArticle($article);
     }
 
     /**
@@ -73,9 +81,16 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
-        //
+        $title = $request->title;
+        $content = $request->content;
+
+        $article->title = $title;
+        $article->content = $content;
+        $article->save();
+
+        return redirect(route('article.index'));
     }
 
     /**
@@ -84,8 +99,9 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        return redirect(route('article.index'));
     }
 }

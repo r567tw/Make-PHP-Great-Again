@@ -20,3 +20,6 @@ Route::resource('article', 'ArticleController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('sendMail', function () {
+    \Mail::to('abc@abc.com')->send(new \App\Mail\FirstMail);
+});

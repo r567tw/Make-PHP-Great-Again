@@ -23,3 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('sendMail', function () {
     \Mail::to('abc@abc.com')->send(new \App\Mail\FirstMail);
 });
+
+Route::get('middlewareTest', function () {
+    return 'Hello example@example.com';
+})->middleware('FirstMiddleware');

@@ -3,7 +3,6 @@
 @section('content')
 <h1 class="font-bold">新增文章</h1>
 <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="{{ route('article.store')}}" method="post">
-    @csrf
     <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="title"">
             標題

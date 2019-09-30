@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Http\Requests\UpdateArticleRequest;
+use Log;
 
 class ArticleController extends Controller
 {
@@ -41,6 +42,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        Log::info('Hi 我們的第一個Log訊息');
         $title = $request->title;
         $content = $request->content;
 

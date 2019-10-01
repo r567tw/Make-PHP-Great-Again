@@ -46,10 +46,11 @@ class ArticleController extends Controller
         $title = $request->title;
         $content = $request->content;
 
-        $article = new Article();
-        $article->title = $title;
-        $article->content = $content;
-        $article->save();
+        // $article = new Article();
+        // $article->title = $title;
+        // $article->content = $content;
+        // $article->save();
+        $article = Article::create($request->all());
 
         return redirect(route('article.index'));
     }

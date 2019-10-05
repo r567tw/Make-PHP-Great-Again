@@ -8,4 +8,10 @@ class Article extends Model
 {
     //
     protected $fillable = ['title', 'content'];
+
+
+    public function tags()
+    {
+        return $this->hasMany('App\Tag');
+    }
 }

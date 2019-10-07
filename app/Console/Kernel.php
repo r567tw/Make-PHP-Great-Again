@@ -24,8 +24,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        $schedule->command('inspire')
+            ->everyMinute()
+            ->appendOutputTo('inspire.log');
+
+        $schedule->call(function () {
+            file_put_contents('time.log', \Carbon\Carbon::now());
+        })->everyMinute();
     }
 
     /**
@@ -35,7 +40,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }

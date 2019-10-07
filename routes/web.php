@@ -27,3 +27,9 @@ Route::get('sendMail', function () {
 Route::get('middlewareTest', function () {
     return 'Hello example@example.com';
 })->middleware('FirstMiddleware');
+
+Route::get('upload','UploadController@uploadPage');
+Route::post('upload','UploadController@upload');
+
+
+

@@ -1,17 +1,18 @@
-@extends('layouts.layout')
+@extends('layouts.app')
 
 @section('content')
+<div class="table-responsive col-md-12">
 <h1>文章列表</h1>
 <a href="{{ route('article.create') }}">新增文章</a>
-<table class="table border border-black">
-    <td class="border border-black">標題</td>
-    <td class="border border-black">內容</td>
-    <td class="border border-black">動作</td>
+<table class="table">
+    <td class="">標題</td>
+    <td class="">內容</td>
+    <td class="">動作</td>
     @foreach($articles as $article)
-    <tr class="border border-black">
-        <td class="border border-black">{{ $article->title }}</td>
-        <td class="border border-black">{{ $article->content }}</td>
-        <td class="border border-black">
+    <tr class="">
+        <td class="">{{ $article->title }}</td>
+        <td class="">{{ $article->content }}</td>
+        <td class="">
             <a href="{{ route('article.show',$article->id ) }}">查看</a>
             <a href="{{ route('article.edit',$article->id ) }}">編輯</a>
             <form method="POST" action="{{ route('article.destroy',$article->id ) }}">
@@ -23,4 +24,7 @@
     </tr>
     @endforeach
 </table>
+</div>
+{{ $articles->links() }}
 @endsection
+

@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    {{ trans('message.welcome') }}
                 </div>
 
                 <div class="links">

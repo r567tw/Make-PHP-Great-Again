@@ -31,5 +31,9 @@ Route::get('middlewareTest', function () {
 Route::get('upload','UploadController@uploadPage');
 Route::post('upload','UploadController@upload');
 
+Route::get('welcome/{locale}', function ($locale) {
+    app()->setLocale($locale);
+    return view('welcome');
+});
 
 
